@@ -1,0 +1,51 @@
+.top_banner {
+    background: #333;
+    color: #f00;
+    position: relative;
+
+    height: 100px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+.top_banner.on {
+    height: 0;
+}
+
+.top_banner i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tab_content>li {
+    display: none;
+}
+
+.tab_content>li.on {
+    display: block;
+}
+
+.tab_menu>li.on {
+    color: tomato;
+}
+
+.bb {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background: tomato;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 0;
+}
+
+.arrows i {
+    font-size: 100px;
+}
+
+.sub .swiper-slide.on {
+    color: tomato;
+}
