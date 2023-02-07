@@ -1,51 +1,133 @@
-.top_banner {
-    background: #333;
-    color: #f00;
-    position: relative;
+.Wrap {
+    min-width: 1900px;
+}
 
-    height: 100px;
+#header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    /* overflow: hidden; */
+}
+
+#header .topBanner {
+    height: 160px;
+    background: tomato;
+
+    position: relative;
     overflow: hidden;
+}
+
+#header .topBanner.on {
+    height: 0;
     transition: height 0.5s;
 }
 
-.top_banner.on {
-    height: 0;
-}
-
-.top_banner i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.tab_content>li {
+#header .topBanner.on+i {
     display: none;
 }
 
-.tab_content>li.on {
+#header .topBanner a {
     display: block;
+    height: 160px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
-.tab_menu>li.on {
-    color: tomato;
+#header .topBanner .itm01 a {
+    background-image: url(../img/top_banner01.jpg);
 }
 
-.bb {
-    display: inline-block;
-    width: 100px;
-    height: 30px;
-    background: tomato;
+#header .topBanner .itm02 a {
+    background-image: url(../img/top_banner02.png);
+}
+
+#header .topBanner .itm03 a {
+    background-image: url(../img/top_banner03.png);
+}
+
+#header i {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-100%, 0);
+    z-index: 999;
+    margin: 0 0 0 600px;
     color: #fff;
-    line-height: 30px;
-    text-align: center;
+    font-size: 30px;
+}
+
+#header .topBanner .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: auto;
+    z-index: 999;
+}
+
+#header .topBanner .dots span {
+    width: 4px;
+    height: 10px;
+    background: #fff;
     border-radius: 0;
 }
 
-.arrows i {
-    font-size: 100px;
+#header .topBanner .dots span.swiper-pagination-bullet-active {
+    transform: scaleY(150%);
+    transition: transform 0.5s;
 }
 
-.sub .swiper-slide.on {
-    color: tomato;
+#header .hdWap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    line-height: 100px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+#header .hdWap.on {
+    line-height: 70px;
+    background: rgba(255, 255, 255, 1);
+    color: #444;
+}
+
+#header .hdWap h1 {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
+
+#header .hdWap h1 a {
+    display: block;
+    background: url(../img/logo01.png) no-repeat left center;
+    width: 200px;
+    font-size: 0;
+}
+
+#header .hdWap.on h1 a {
+    background: url(../img/logo02.png) no-repeat left center;
+}
+
+#header .hdWap .gnb {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#header .hdWap .right {
+    position: absolute;
+    top: 0;
+    right: 70px;
+}
+
+#main {
+    position: relative;
+    z-index: 1;
+    background: url(../img/main_visual01.jpg) no-repeat center center/cover;
+    height: 100vh;
 }
