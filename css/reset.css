@@ -19,3 +19,8 @@ a {
 body {
     line-height: 1;
 }
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
