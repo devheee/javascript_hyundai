@@ -101,6 +101,11 @@ const PF_LEFT_SLIDE_OPTION = {
     fadeEffect: {
         crossFade: true,
     },
+    initalSlide: 1,
+    navigation: {
+        nextEl: "#mainPortfolio .arrows li:nth-child(2)",
+        prevEl: "#mainPortfolio .arrows li:nth-child(1)"
+    }
     // watchSlidesProgress: true,
     // autoplay: {
     //     delay: 3000,
@@ -113,6 +118,7 @@ const PF_RIGHT_SLIDE_OPTION = {
     loop: true,
     slidesPerView: 5,
     spaceBetween: 20,
+    slideToClickedSlide: true,
     // watchSlidesProgress: true,
     // thumbs: {
     //     swiper: PF_LEFT_SLIDE,
@@ -122,3 +128,37 @@ const PF_RIGHT_SLIDE_OPTION = {
 const PF_RIGHT_SLIDE = new Swiper('.pf_right_slide', PF_RIGHT_SLIDE_OPTION);
 PF_LEFT_SLIDE.controller.control = PF_RIGHT_SLIDE;
 PF_RIGHT_SLIDE.controller.control = PF_LEFT_SLIDE;
+
+const MS_CONTENT = document.querySelectorAll('#mainSolution .Ms_content .content')
+const MS_NUM = document.querySelector('#mainSolution .num')
+
+const MS_SLIDE_OPTION = {
+    loop: true,
+    spaceBetween: 100,
+    centerdSlides: true,
+    slidesPerView: "auto",
+    slideActiveClass: "on",
+    on: {
+        slideChangeTransitionStart: function () {
+            console.log(this, this.realIndexm, this.slides.length);
+            let idx = this.realIndex;
+            let total = this.slides.length;
+            // for (let i = 0; i < MS_CONTENT.length; i++) {
+            //     MS_CONTENT[i].classList.remove('on');
+            // }
+            MS_NUM.innerHTML = `<strong>${idx < 10 ? '0' : ''}${idx + 1}</strong> / <span>${total < 10 ? '0' : ''}${total}</span>`;
+
+            MS_CONTENT.forEach(it => it.classList.remove('on'));
+            MS_CONTENT[idx].classList.add('on');
+        }
+    },
+    navigation: {
+        nextEl: "#mainSolution .arrows li:nth-child(2)",
+        prevEl: "#mainSolution .arrows li:nth-child(1)"
+    },
+    pagination: {
+        el: "#mainSolution .dots",
+        clickable: true,
+    },
+}
+const MS_SLIDE = new Swiper('.Ms_slide', MS_SLIDE_OPTION)
