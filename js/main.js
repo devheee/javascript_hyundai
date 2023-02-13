@@ -162,14 +162,55 @@ const MS_SLIDE_OPTION = {
 }
 const MS_SLIDE = new Swiper('.Ms_slide', MS_SLIDE_OPTION);
 
+// 바닐라 자바스크립트로 youtube 넣기
+
+let player;
+const Y_OPTION = {
+    height: '100%',
+    width: '100%',
+    videoId: 'KomKZMuFnv0',
+}
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('main_movie01', Y_OPTION);
+}
+
+// pp.onClick = function () {
+//     console.log('btn')
+// }
+
+// const Y_PLAY_BTN = document.querySelector('#pp');
+// const Y_PAUSE_BTN = document.querySelector('#pp2');
+// const Y_PLAY_VIDEO = () => {
+//     player.playVideo();
+// };
+// const Y_PAUSE_VIDEO = () => {
+//     player.pauseVideo();
+// };
+
+// Y_PLAY_BTN.addEventListener('click', Y_PLAY_VIDEO);
+// Y_PAUSE_BTN.addEventListener('click', Y_PAUSE_VIDEO);
 
 
+const V_BTN = document.querySelector('.video_btn');
 
+let SW = true;
+const V_SWITCH = e => {
+    const tg = e.target;
+    tg.classList.toggle('on');
+    // SW ?  player.playVideo() : player.pauseVideo();
+    if (SW) {
+        player.playVideo();
+    } else {
+        player.pauseVideo();
+    }
 
+    SW = !SW;
+}
+V_BTN.addEventListener('click', V_SWITCH);
 
+// let SW : 전역변수, 전역변수를 지역변수로 가둬서 쓰는 방법이 없을까?
 
+// <div id='pp' onClick ={()=> console.log('btn')}/>;
 
-
-
-
-
+// cosnt [on, setOn] = useState(true);
+// <button onClick ={()=>setOn(!on)} className={on ? 'on' : ''}</button>

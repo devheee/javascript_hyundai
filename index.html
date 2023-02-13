@@ -369,9 +369,33 @@
                     </div>
                 </div>
             </section>
+            <section id="mainMovie" class="sc">
+                <h2 class="tit">홍보영상</h2>
+                <p class="desc">건물 특성에 맞는 다양한 제품으로 고객의 요구를 충족시켜드립니다.</p>
+
+                <!-- 반응형 iframe -->
+                <div class="movie_case">
+                    <div class="case">
+                        <div id="main_movie01"></div>
+                    </div>
+                    <button class="video_btn">
+                    </button>
+                </div>
+
+                <!-- <button id="pp">PLAY</button>
+                <button id="pp2">pause</button> -->
+            </section>
         </main>
         <footer id="footer"></footer>
     </div>
+
+    <script>
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
 </body>
 
 </html>
