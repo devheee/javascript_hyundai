@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/main.css">
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api" defer></script>
     <script src="./js/main.js" defer></script>
 </head>
 
@@ -381,21 +382,46 @@
                     <button class="video_btn">
                     </button>
                 </div>
-
                 <!-- <button id="pp">PLAY</button>
                 <button id="pp2">pause</button> -->
+
+                <ul class="link">
+
+                </ul>
+            </section>
+            <section id="mainNews" class="sc">
+                <h2 class="tit">현대엘리베이터 소식</h2>
+                <p class="desc">현대엘리베이터의 새소식을 전해드립니다.</p>
+                <div class="inner">
+                    <figure>
+                        <a href="#!">
+                            <img src="./img/news01.jpg" alt="">
+                            <span>보도자료</span>
+                            <strong>미래의 엘리베이터 디자인은? 현대엘리베이터 국제 아이디어 공모전 성료</strong>
+                            <em>2022.11.30</em>
+                        </a>
+                    </figure>
+                    <figure>
+                        <a href="#!">
+                            <img src="./img/news02.jpg" alt="">
+                            <span>보도자료</span>
+                            <strong>현대엘리베이터, ‘스마트 엘리베이터 국내외 공모전’ 개최</strong>
+                            <em>2022.08.22</em>
+                        </a>
+                    </figure>
+                    <figure>
+                        <a href="#!">
+                            <img src="./img/news03.jpg" alt="">
+                            <span>보도자료</span>
+                            <strong>현대엘리베이터 “2030년까지 글로벌 Top 5로 도약한다”</strong>
+                            <em>2022.07.14</em>
+                        </a>
+                    </figure>
+                </div>
             </section>
         </main>
         <footer id="footer"></footer>
     </div>
-
-    <script>
-        var tag = document.createElement('script');
-
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    </script>
 </body>
 
 </html>

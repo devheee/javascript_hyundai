@@ -166,9 +166,9 @@ const MS_SLIDE = new Swiper('.Ms_slide', MS_SLIDE_OPTION);
 
 let player;
 const Y_OPTION = {
-    height: '100%',
-    width: '100%',
-    videoId: 'KomKZMuFnv0',
+    //height: '100%',
+    //width: '100%',
+    videoId: 'raw3Nu0_mBQ',
 }
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('main_movie01', Y_OPTION);
@@ -214,3 +214,70 @@ V_BTN.addEventListener('click', V_SWITCH);
 
 // cosnt [on, setOn] = useState(true);
 // <button onClick ={()=>setOn(!on)} className={on ? 'on' : ''}</button>
+
+const MOVIE_UL = document.querySelector('#mainMovie .link')
+const UL_CSS = `
+display:flex;
+gap:50px;
+width:1200px;
+margin:60px auto 0 auto;
+text-align:center;
+`
+
+MOVIE_UL.style.cssText = UL_CSS;
+//[...MOVIE_UL.children][0].classList.add('on');
+
+
+const MOVIE_LINK = [
+    { title: "IT Technology", desc: "IT 기술이 창조하는 승강기 스마트 시스템" },
+    { title: "Green Technology", desc: "지구환경을 생각하는 녹색기술" }
+]
+
+// MOVIE_UL.innerHTML = `<li>
+// <strong>${MOVIE_LINK[0].title}</strong>
+// <span>${MOVIE_LINK[0].desc}</span>
+// </li>`;
+
+// for (let i = 0; i < MOVIE_LINK.length; i++) {
+//     MOVIE_UL.innerHTML = `<li>
+//     <strong>${MOVIE_LINK[0].title}</strong>
+//     <span>${MOVIE_LINK[0].desc}</span>
+//     </li>`;
+// }
+
+for (it of MOVIE_LINK) {
+    MOVIE_UL.innerHTML += `<li>
+        <strong>${it.title}</strong>
+        <span>${it.desc}</span>
+        </li>`;
+}
+
+const STRONG = document.querySelectorAll('#mainMovie .link strong');
+
+for (it of STRONG) {
+    it.style.display = 'block';
+}
+
+
+console.log([...MOVIE_UL.children][0]);
+[...MOVIE_UL.children][0].classList.add('on');
+
+const MOVIE_UL_TOGGLE = e => {
+    //전체 li에서 class를 떼고, 클릭한 거에 class를 붙이기
+    //click 한거의 번호 가져오기
+    let idx = [...MOVIE_UL.children].indexOf(e.target.parentElement)
+    console.log(idx);
+
+    for (it of [...MOVIE_UL.children]) {
+        it.classList.remove('on')
+    };
+    [...MOVIE_UL.children][idx].classList.add('on');
+}
+
+MOVIE_UL.addEventListener('click', MOVIE_UL_TOGGLE)
+// MOVIE_LINK.map(it => {
+//     MOVIE_UL.innerHTML = `<li>
+//     <strong>${MOVIE_LINK[0].title}</strong>
+//     <span>${MOVIE_LINK[0].desc}</span>
+//     </li>`;
+// })
