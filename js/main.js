@@ -281,3 +281,8 @@ MOVIE_UL.addEventListener('click', MOVIE_UL_TOGGLE)
 //     <span>${MOVIE_LINK[0].desc}</span>
 //     </li>`;
 // })
+
+const FOOTER_NAV = [
+
+]
+

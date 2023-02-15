@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>하이루</h1>
+    <nav>
+        <ul class="gnb"></ul>
+        <!-- <ul class="gnb">
+            <li>
+                <a href="">menu01 </a>
+                <ul class="smenu">
+                    <li><a href=""></a>smenu011</li>
+                    <li><a href=""></a>smenu012</li>
+                    <li><a href=""></a>smenu013</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu02 </a>
+                <ul class="smenu">
+                    <li><a href=""></a>smenu021</li>
+                    <li><a href=""></a>smenu022</li>
+                    <li><a href=""></a>smenu023</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu03 </a>
+                <ul class="smenu">
+                    <li><a href=""></a>smenu031</li>
+                    <li><a href=""></a>smenu032</li>
+                    <li><a href=""></a>smenu033</li>
+                </ul>
+            </li>
+        </ul> -->
+    </nav>
+
+    <!-- 리액트버전
+    
+    <nav>
+        <ul class="gnb">
+            {Nav.map((it,idx) => {
+                return (
+                     <li><a href="{it.link}">{it.title}</a></li>
+                     <ul className="submenu">
+                        {
+                            it.submenu.map(it=><li><a href={it.link}>{it.title}</a></li>)
+                        }
+                     </ul>
+                 )
+             })
+            }
+        </ul>
+    </nav> -->
+    <script type="module">
+        //외부에 있는 데이터를 가져와서 메뉴 만들기
+        import Nav from './nav.js'
+        console.log(Nav);
+
+        const navi = document.querySelector('nav>ul');
+
+        for (const it of Nav) {
+            navi.innerHTML += `
+            <li>
+        <a href='${it.link}'>${it.title}</a>
+        </li
+        `
+        }
+
+
+        const LI = document.querySelectorAll('nav>ul>li');
+
+        for (const it of LI) {
+            const UL = document.createElement('ul');
+            UL.classList.add('submenu');
+            it.appendChild(UL);
+        }
+
+        const SUL = document.querySelectorAll('.submenu');
+
+        //console.log(UL);
+        console.log(LI);
+        console.log(SUL);
+
+
+
+
+        for (let i = 0; i < Nav.length; i++) {
+            for (const n of Nav[i].submenu) {
+                console.log(n);
+                SUL[i].innerHTML += `
+                <li><a href='${n.link}'>${n.title}</a></li>
+                `;
+            }
+
+            //it.innerHTML += `<span>01</span>`
+        };
+
+        console.log(LI);
+
+
+    </script>
+</body>
+
+</html>
