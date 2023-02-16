@@ -299,10 +299,19 @@ T_RIGHT_BTN.forEach(it => {
 })
 
 const R_TAB = (it, idx) => {
-    T_RIGHT.forEach(it => it.classList.remove('on'));
-    it.classList.add('on');
-    T_RIGHT.forEach(it => it.parentElement.classList.remove('on'));
-    it.parentElement.classList.add('on');
+    // T_RIGHT.forEach(it => it.classList.remove('on'));
+    // it.classList.add('on');
+    // const sbr = [...T_RIGHT].filter(el => el !== it);
+    // console.log(sbr)
+
+    for (el of T_RIGHT) {
+        if (el !== it) {
+            el.parentElement.classList.remove('on')
+        }
+    }
+
+    it.parentElement.classList.toggle('on');
+
 }
 
 T_RIGHT.forEach((it, idx) => {
