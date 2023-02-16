@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu>li.on {
+            color: #f00;
+        }
+
+        .con>li {
+            display: none;
+        }
+
+        .con>li.on {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li class="on">menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+    </ul>
+    <ul class="con">
+        <li class="on">con01</li>
+        <li>con02</li>
+        <li>con03</li>
+    </ul>
+
+    <script>
+        // $(this).index() 제이쿼리에 있는 인덱스를 가져오는 방법
+        // nodeList, htmlCollection 유사배열 .childeren
+
+        const UL = document.querySelector('.menu');
+        const MENU = document.querySelectorAll('.menu>li');
+        const CON = document.querySelectorAll('.con>li');
+
+        console.log(
+            MENU,
+            UL.children,
+            ...UL.children,
+            [...UL.children],
+            CON,
+            CON[0]
+        );
+
+        // MENU의 li를 클릭했을 때 그 번호를 가져오기
+        // const 번호가져오기 = (e) => {
+        //     // 화살표함수는 this가 없다.
+        //     const 번호 = [...MENU].indexOf(e.target);
+        //     // console.log('번호 : ', this, 번호); // 0, 1, 2
+        //     for (let i = 0; i < CON.length; i++) {
+        //         CON[번호].classList.remove('on');
+        //     }
+        //     CON[번호].classList.add('on');
+        // }
+
+        // for (let i = 0; i < MENU.length; i++) {
+        //     // 0 1 2
+        //     MENU[0].addEventListener('click', 번호가져오기)
+        // }
+
+        // forEach 라는 메소드는 번호를 아주 쉽게 반환한다.
+
+        MENU.forEach((it, idx) => {
+            it.addEventListener('click', () => {
+                MENU.forEach(it => it.classList.remove('on'))
+                it.classList.add('on');
+                CON.forEach(it => it.classList.remove('on'))
+                CON[idx].classList.add('on');
+            })
+        });
+
+        // ↑ 
+        // 제이쿼리 버전
+        // $('.menu>li').on('click', function () {
+        //     var idx = $(this).index();
+        //     $(this).addClass('on').siblings().removeClass('on');
+        //     $('.con>li').eq(idx).addClass('on').siblings().removeClass('on');
+        // });
+
+        // 리액트 버전
+        // const [번호, 번호바꾸기] = useSate(0);
+        //  <ul class="menu">
+        //     <li class="on" onClick={()=>번호바꾸기(0)}>menu01</li>
+        //     <li onClick={()=>번호바꾸기(1)}>menu02</li>
+        //     <li onClick={()=>번호바꾸기(2)}>menu03</li>
+        //  </ul>
+        //  <ul class="con">
+        //     <li>{배열[번호]}</li>
+        //  </ul>
+
+
+    </script>
+</body>
+
+</html>
