@@ -309,7 +309,7 @@ const R_TAB = (it, idx) => {
             el.parentElement.classList.remove('on')
         }
     }
-
+    //sbr.forEach(it => it.parentElement.classList.remove('on'));
     it.parentElement.classList.toggle('on');
 
 }
@@ -326,3 +326,35 @@ T_RIGHT.forEach((it, idx) => {
 //     <li className={on}></li>
 //     <a onClick = {()=>setOn(!on)}></a>
 // }
+
+
+const TO_TOP = document.querySelector('#topTop');
+const BODY = document.querySelector('html, body');
+
+// 윈도우가 500정도 스크롤 되었을 때 버튼이 나오고 아니면 들어감
+
+//console.log(window);
+const TOGGLE_TOP_BTN = () => {
+    //console.log(window.scrollY);
+    let SCT = window.scrollY;
+
+    // SCT>500
+    //  ? TO_TOP.classList.add('on')
+    //  : TO_TOP.classList.remove('on')
+
+    if (SCT > 500) {
+        TO_TOP.classList.add('on')
+    } else {
+        TO_TOP.classList.remove('on')
+    }
+}
+
+window.addEventListener('scroll', TOGGLE_TOP_BTN);
+
+const WINDOW_TOP = () => {
+    // $('html, body).animate({scrollTo:0}, 1000);
+    // BODY.scrollTo({ top: 0, behavior: "smooth" });
+    gsap.to(BODY, { duration: 0.5, scrollTo: 0 })
+};
+
+TO_TOP.addEventListener('click', WINDOW_TOP);
